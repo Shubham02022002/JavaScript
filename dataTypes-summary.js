@@ -32,10 +32,35 @@ const myFunction=function(){
     console.log("Hello from myFunction");
 }
 
-myFunction();
+// myFunction();
 
-console.log(typeof userDeatils);
+// console.log(typeof userDeatils);
 
-console.log(typeof heros);
+// console.log(typeof heros);
 
-console.log(typeof anotherId);
+// console.log(typeof anotherId);
+
+// -----------------------------------------------------
+
+// Stack(Premitive), Heap(Non-Premitive)
+
+let myYoutubeName="doesnotexits";
+let anotherYoutubeName=myYoutubeName;
+
+anotherYoutubeName="itdoesexist";
+
+// console.log(myYoutubeName);
+// console.log(anotherYoutubeName);
+
+
+let userOne={
+    email:"user@gmail.com",
+    upi:"user@hdfc"
+}
+
+let userTwo=userOne;
+
+userTwo.upi="user@axis";
+
+console.log(userOne);
+console.log(userTwo);
