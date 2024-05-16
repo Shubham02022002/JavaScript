@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning DOM 4</title>
+  </head>
+  <body style="background-color: black; color: whitesmoke">
+    <ul class="language">
+      <li>Javascript</li>
+    </ul>
+  </body>
+  <script>
+    function addLanguage(langName) {
+      const li = document.createElement("li");
+      li.innerHTML=`${langName}`;   
+      const langClass=document.querySelector('.language');
+      langClass.appendChild(li);
+    }
+    addLanguage("C++");
+
+    const addLanguageOptimisedWay=(langName)=>{
+        const li=document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li);
+    }
+    addLanguageOptimisedWay('Typescript')
+    addLanguageOptimisedWay('Golang')
+
+    //edit
+
+    const firstLang=document.querySelector("li:nth-child(1)");
+    // firstLang.innerHTML="Mocha";
+    const newLi=document.createElement('li');
+    newLi.textContent='Mocha';
+    firstLang.replaceWith(newLi);
+
+    const firstLang1=document.querySelector("li:first-child");
+    firstLang1.outerHTML='<li>Ruby</li>'
+
+    const lastChild=document.querySelector("li:last-child");
+    lastChild.remove()
+  </script>
+</html>
