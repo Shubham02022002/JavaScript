@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="github"
+      style="width: 350px; height: 350px; border: 1px solid black"
+    >
+      <div id="avatar">
+        <img id="img" src="" alt="">
+      </div>
+    </div>
+    <p id="followerCount">Followers:</p>
+    <button id="getDetails">Get INFO</button>
+    <script>
+      const requestURL = "https://api.github.com/users/shubham02022002";
+
+      const xhr = new XMLHttpRequest();
+
+      xhr.open("GET", requestURL);
+      xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+          const data = JSON.parse(this.responseText);
+          document.getElementById('followerCount').innerText="Followers: "+data.followers;
+          document.getElementById('img').setAttribute('src',data.avatar_url);
+        }
+      };
+      document.getElementById("getDetails").addEventListener("click", () => {
+        xhr.send();
+      });
+    </script>
+  </body>
+</html>
